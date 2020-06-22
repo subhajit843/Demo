@@ -1,0 +1,231 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'score.ui'
+#
+# Created by: PyQt5 UI code generator 5.13.2
+#
+# WARNING! All changes made in this file will be lost!
+
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+
+class Ui_Dialog(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(552, 533)
+        self.gridLayout = QtWidgets.QGridLayout(Dialog)
+        self.gridLayout.setObjectName("gridLayout")
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.le1 = QtWidgets.QLabel(Dialog)
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.le1.setFont(font)
+        self.le1.setObjectName("le1")
+        self.horizontalLayout.addWidget(self.le1)
+        self.cb1 = QtWidgets.QComboBox(Dialog)
+        self.cb1.setObjectName("cb1")
+        self.horizontalLayout.addWidget(self.cb1)
+        font = QtGui.QFont()
+        font.setFamily("Courrier New")
+        font.setBold(True)
+        font.setPointSize(10)
+        self.cb1.setFont(font)
+
+        import sqlite3
+        conn = sqlite3.connect('fantasycricket.db')
+        self.horizontalLayout.addWidget(self.cb1)
+        sql="select name from teams"
+        cur=conn.execute(sql)
+        teams=[]
+        for row in cur:
+            self.cb1.addItem(row[0])        
+        conn.close()
+        
+        self.le2 = QtWidgets.QLabel(Dialog)
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.le2.setFont(font)
+        self.le2.setObjectName("le2")
+        self.horizontalLayout.addWidget(self.le2)
+        self.cb2 = QtWidgets.QComboBox(Dialog)
+        self.cb2.setObjectName("cb2")
+        
+        font = QtGui.QFont()
+        font.setFamily("Courrier New")
+        font.setBold(True)
+        font.setPointSize(10)
+        self.cb2.setFont(font)
+        self.cb2.addItem("")
+        self.cb2.addItem("")
+        self.cb2.addItem("")
+        self.cb2.addItem("")
+        self.cb2.addItem("")
+        
+        self.horizontalLayout.addWidget(self.cb2)
+        self.gridLayout.addLayout(self.horizontalLayout, 0, 0, 1, 1)
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_2.addItem(spacerItem)
+        self.label_2 = QtWidgets.QLabel(Dialog)
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_2.setFont(font)
+        self.label_2.setObjectName("label_2")
+        self.horizontalLayout_2.addWidget(self.label_2)
+        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_2.addItem(spacerItem1)
+        self.label = QtWidgets.QLabel(Dialog)
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
+        self.horizontalLayout_2.addWidget(self.label)
+        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_2.addItem(spacerItem2)
+        self.gridLayout.addLayout(self.horizontalLayout_2, 1, 0, 1, 1)
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.list1 = QtWidgets.QListWidget(Dialog)
+        self.list1.setObjectName("list1")
+        font = QtGui.QFont()
+        font.setFamily("Courrier New")
+        font.setBold(True)
+        font.setPointSize(10)
+        self.list1.setFont(font)
+        self.horizontalLayout_3.addWidget(self.list1)
+        spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_3.addItem(spacerItem3)
+        self.list2 = QtWidgets.QListWidget(Dialog)
+        self.list2.setObjectName("list2")
+        font = QtGui.QFont()
+        font.setFamily("Courrier New")
+        font.setBold(True)
+        font.setPointSize(10)
+        self.list2.setFont(font)
+        self.horizontalLayout_3.addWidget(self.list2)
+        self.gridLayout.addLayout(self.horizontalLayout_3, 2, 0, 1, 1)
+        self.horizontalLayout_5 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_5.setObjectName("horizontalLayout_5")
+        self.b1 = QtWidgets.QPushButton(Dialog)
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.b1.setFont(font)
+        self.b1.setObjectName("b1")
+        self.horizontalLayout_5.addWidget(self.b1)
+
+        self.b1.clicked.connect(self.calculate)
+        
+        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_5.addItem(spacerItem4)
+        self.le1_2 = QtWidgets.QLineEdit(Dialog)
+        self.le1_2.setObjectName("le1_2")
+        font = QtGui.QFont()
+        font.setFamily("Courrier New")
+        font.setBold(True)
+        font.setPointSize(10)
+        self.le1_2.setFont(font)
+        self.horizontalLayout_5.addWidget(self.le1_2)
+        self.gridLayout.addLayout(self.horizontalLayout_5, 3, 0, 1, 1)
+
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+        
+
+    def calculate(self):
+        import sqlite3
+        conn = sqlite3.connect('fantasycricket.db')
+        team=self.cb1.currentText()
+        self.list1.clear()
+        sql1="select players, value from teams where name='"+team+"'"
+        cur=conn.execute(sql1)
+        row=cur.fetchone()
+        #print (row[0])
+        selected=row[0].split(',')
+        #print (selected)
+        self.list1.addItems(selected)
+        teamttl=0
+        #print("ded")
+        self.list2.clear()
+        match=self.cb2.currentText()
+        for i in range(self.list1.count()):
+            ttl, batscore, bowlscore, fieldscore=0,0,0,0
+            nm=self.list1.item(i).text()
+            cursor=conn.execute("select * from "+match+" where player='"+nm+"'")
+            row=cursor.fetchone()
+            #print ("fekn")
+            #print(row)
+            batscore=int(row[1]/2)
+            if batscore>=50: batscore+=5
+            if batscore>=100: batscore+=10
+            if row[1]>0:
+                sr=row[1]/row[2]
+                if sr>=80 and sr<100: batscore+=2
+                if sr>=100:batscore+=4
+            batscore=batscore+row[3]
+            batscore=batscore+2*row[4]
+            #print ("batting score=", batscore)
+            bowlscore=row[8]*10
+            if row[8]>=3: bowlscore=bowlscore+5
+            if row[8]>=5: bowlscore=bowlscore=bowlscore+10
+            if row[7]>0:
+                er=6*row[7]/row[5]
+                #print ("eco:")
+                if er<=2: bowlscore=bowlscore+10
+                if er>2 and er<=3.5: bowlscore=bowlscore+7
+                if er>3.5 and er<=4.5: bowlscore=bowlscore+4
+            fieldscore=(row[9]+row[10]+row[11])*10            
+            ttl=batscore+bowlscore+fieldscore
+            #print("frfm")
+            self.list2.addItem(str(ttl))
+            #print("rb")
+            teamttl=teamttl+ttl
+            #int(teamttl)
+            
+            #self.scorelabel.setText(str(teamttl))
+        #print("gt")
+        self.le1_2.setText(str(teamttl))
+        #print("du")
+
+
+    def retranslateUi(self, Dialog):
+        _translate = QtCore.QCoreApplication.translate
+        Dialog.setWindowTitle(_translate("Dialog", "Score"))
+        self.le1.setText(_translate("Dialog", "Choose Team"))
+        self.le2.setText(_translate("Dialog", "Choose Match"))
+        self.cb2.setItemText(0, _translate("Dialog", "Match1"))
+        self.cb2.setItemText(1, _translate("Dialog", "Match2"))
+        self.cb2.setItemText(2, _translate("Dialog", "Match3"))
+        self.cb2.setItemText(3, _translate("Dialog", "Match4"))
+        self.cb2.setItemText(4, _translate("Dialog", "Match5"))
+        self.label_2.setText(_translate("Dialog", "Players"))
+        self.label.setText(_translate("Dialog", "Score"))
+        self.b1.setText(_translate("Dialog", "Calculate Score"))
+
+        self.le1_2.setText(_translate("Score", "00"))
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    Dialog = QtWidgets.QDialog()
+    ui = Ui_Dialog()
+    ui.setupUi(Dialog)
+    Dialog.show()
+    sys.exit(app.exec_())
